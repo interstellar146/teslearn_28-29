@@ -2298,12 +2298,12 @@ ol {
 
 .viva-card--active {
   border-color: var(--orange);
-  box-shadow: 0 0 0 3px rgba(232, 101, 26, 0.1), 0 8px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 3px rgba(232, 101, 26, 0.15), 0 12px 32px rgba(232, 101, 26, 0.08);
 }
 
 .viva-card--ai.viva-card--active {
   border-color: var(--olive);
-  box-shadow: 0 0 0 3px rgba(46, 79, 47, 0.1), 0 8px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 3px rgba(46, 79, 47, 0.15), 0 12px 32px rgba(46, 79, 47, 0.08);
 }
 
 .viva-card--assistant {
@@ -2404,31 +2404,28 @@ ol {
 }
 
 .viva-waveform-bar {
-  width: 3.5px;
-  background: var(--olive);
-  border-radius: 3px;
-  height: 30%;
-  transition: height 0.15s ease;
-  opacity: 0.25;
+  width: 4px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  height: 20%;
+  transition: height 0.1s ease-out, background-color 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0.4;
 }
 
 .viva-waveform-bar--active {
   opacity: 1;
-  animation: waveAnim 0.6s ease-in-out infinite alternate;
+  background: var(--olive);
+  box-shadow: 0 0 8px rgba(30, 42, 26, 0.2);
 }
 
-.viva-waveform-bar--user {
+.viva-waveform-bar--user.viva-waveform-bar--active {
   background: var(--orange);
+  box-shadow: 0 0 10px rgba(232, 101, 26, 0.3);
 }
 
 @keyframes waveAnim {
-  0% {
-    transform: scaleY(0.6);
-  }
-
-  100% {
-    transform: scaleY(1);
-  }
+  0% { transform: scaleY(0.8); }
+  100% { transform: scaleY(1.2); }
 }
 
 /* Question */
