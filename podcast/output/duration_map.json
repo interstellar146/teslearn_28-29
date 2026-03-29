@@ -1,0 +1,117 @@
+[
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 0,
+        "to_duration": 8.928
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 8.928,
+        "to_duration": 23.868000000000002
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 23.868000000000002,
+        "to_duration": 29.124000000000002
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 29.124000000000002,
+        "to_duration": 39.92400000000001
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 39.92400000000001,
+        "to_duration": 46.440000000000005
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 46.440000000000005,
+        "to_duration": 55.224000000000004
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 55.224000000000004,
+        "to_duration": 61.92
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 61.92,
+        "to_duration": 69.264
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 69.264,
+        "to_duration": 74.69999999999999
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 74.69999999999999,
+        "to_duration": 80.856
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 80.856,
+        "to_duration": 86.184
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 86.184,
+        "to_duration": 95.184
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 95.184,
+        "to_duration": 98.208
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 98.208,
+        "to_duration": 107.388
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 107.388,
+        "to_duration": 113.47200000000001
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 113.47200000000001,
+        "to_duration": 125.13600000000001
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 125.13600000000001,
+        "to_duration": 129.672
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 129.672,
+        "to_duration": 135.828
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 135.828,
+        "to_duration": 142.704
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 142.704,
+        "to_duration": 152.172
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 152.172,
+        "to_duration": 158.436
+    },
+    {
+        "speaker": "Dr. Kalam",
+        "from_duration": 158.436,
+        "to_duration": 166.608
+    },
+    {
+        "speaker": "iShowSpeed",
+        "from_duration": 166.608,
+        "to_duration": 170.964
+    }
+]

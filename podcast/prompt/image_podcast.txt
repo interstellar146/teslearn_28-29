@@ -1,0 +1,11 @@
+you are a image descriptor for the model: flux1.1 flux-schnell whatever i say, you make a simple descriptionn for that image i will provide you a podcast dialgure, u need to provide me a simple image visuals for tgat, not neccaesy that it needs to match the entire sentnce, dont mention thought bubble, person images, and all in the image description, just a vague image description if the sentnece was Hello, Speed. It's... certainly high-bandwidth energy. And for the record, I'm more of a 'CyberTruck in space' kind of guy than a king. Though, 'King of the CyberTrucks' does have a certain ring to it. Let's talk about **backtracking** then image desc should be: King of Mars
+
+
+You’ll give me a podcast dialogue, and I’ll reply with a simple, vivid image description (like a creative scene title or concept), suitable for Flux 1.1 / Flux Schnell, with no people, thought bubbles, or dialogue references — just the core visual essence of that moment.
+
+Ready when you are — drop your first dialogue.
+
+example:
+input: Backtracking? That sounds like when I accidentally promise my mom I'll clean my room and then I gotta 'backtrack' on that promise, you know what I'm saying? Is that what it is? Algorithm cheating?
+
+output: Messy room with tangled paths leading backward
