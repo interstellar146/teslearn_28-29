@@ -23,7 +23,7 @@ export default function Hero() {
             podcasts, mind maps, virtual labs, and conversational AI — all in one place.
           </p>
           <div className="hero__actions">
-            <Link to="/assistant" className="btn btn--primary btn--lg" id="hero-cta-primary">
+            <Link to="/screenreader" className="btn btn--primary btn--lg" id="hero-cta-primary">
               Start Learning
             </Link>
             <a href="#products" className="btn btn--secondary btn--lg" id="hero-cta-secondary">

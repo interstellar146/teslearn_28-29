@@ -93,7 +93,7 @@ for s in script:
     }
     duration_map.append(context)
     total_dur += duration
-    
+    break
 
 with open("output/duration_map.json", "w") as f:
     json.dump(duration_map, f)

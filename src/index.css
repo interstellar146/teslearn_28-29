@@ -3338,8 +3338,8 @@ ol {
 }
 
 .upload-topic__input:focus {
-  border-color: var(--muted);
-  background: var(--cream);
+  border-color: var(--border);
+  background: var(--card-bg);
 }
 
 .upload-topic__input::placeholder {

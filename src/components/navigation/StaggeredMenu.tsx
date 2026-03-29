@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const menuItems = [
   { label: 'Upload PDF', icon: '📄', route: '/upload' },
-  { label: 'Assistant', icon: '💬', route: '/assistant' },
+  { label: 'Screen Reader', icon: '🔊', route: '/screenreader' },
   { label: 'Videos', icon: '🎬', route: '/video' },
   { label: 'Podcasts', icon: '🎙', route: '/podcast' },
   { label: 'Mind Maps', icon: '🗺️', route: '/mindmap' },
