@@ -4,6 +4,7 @@ import StaggeredMenu from '../components/navigation/StaggeredMenu';
 import { useAppStore } from '../store/useAppStore';
 
 const pageTitles: Record<string, string> = {
+  '/upload': 'Upload PDF',
   '/assistant': 'AI Assistant',
   '/video': 'AI Videos',
   '/podcast': 'AI Podcasts',
