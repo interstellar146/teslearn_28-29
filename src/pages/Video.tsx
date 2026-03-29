@@ -2,6 +2,15 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 const videosData = [
+    {
+    id: 'projectile-motion',
+    title: 'Projectile Motion',
+    variants: [
+      { id: 'en-us', label: 'American English', url: 'https://uploadedbyclients.s3.ap-south-1.amazonaws.com/finalprojectilemotionwithintro.mp4' },
+      { id: 'en-in', label: 'Indian English', url: 'https://uploadedbyclients.s3.ap-south-1.amazonaws.com/ProjectileMotionEn-IND+(1).mp4' },
+      { id: 'hi', label: 'Hindi', url: 'https://uploadedbyclients.s3.ap-south-1.amazonaws.com/ProjectileMotionHindi.mp4' }
+    ]
+  },
   {
     id: 'neural-network',
     title: 'Neural Networks',
@@ -9,15 +18,7 @@ const videosData = [
       { id: 'en', label: 'English', url: 'https://uploadedbyclients.s3.ap-south-1.amazonaws.com/NeuralNetwork.mp4' }
     ]
   },
-  {
-    id: 'projectile-motion',
-    title: 'Projectile Motion',
-    variants: [
-      { id: 'en-us', label: 'American English', url: 'https://uploadedbyclients.s3.ap-south-1.amazonaws.com/finalprojectilemotionwithintro.mp4' },
-      { id: 'en-in', label: 'Indian English', url: 'https://uploadedbyclients.s3.ap-south-1.amazonaws.com/ProjectileMotionEn-IND.mp4' },
-      { id: 'hi', label: 'Hindi', url: 'https://uploadedbyclients.s3.ap-south-1.amazonaws.com/ProjectileMotionHindi.mp4' }
-    ]
-  }
+
 ];
 
 export default function Video() {
@@ -43,6 +44,8 @@ export default function Video() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const pendingTimeRestore = useRef<number | null>(null);
+  const pendingPlayRestore = useRef<boolean>(false);
 
   // Format time mm:ss
   const formatTime = (seconds: number) => {
@@ -143,19 +146,24 @@ export default function Video() {
       setActiveVideo(topic);
       setActiveVariant(topic.variants[0]);
       setIsPlaying(false);
+      setCurrentTime(0);
+      pendingTimeRestore.current = null;
+      pendingPlayRestore.current = false;
     }
     closeMenus();
   };
 
   const handleVariantChange = (variantId: string) => {
     const variant = activeVideo.variants.find((v) => v.id === variantId);
-    if (variant) {
+    if (variant && variant.id !== activeVariant.id) {
       const wasPlaying = isPlaying;
+      const timeToRestore = videoRef.current?.currentTime || 0;
+      
       setActiveVariant(variant);
-      // Let the video load, then resume if it was playing
-      if (wasPlaying && videoRef.current) {
-        videoRef.current.play();
-      }
+      
+      // Store state for restoration after the new video source loads
+      pendingTimeRestore.current = timeToRestore;
+      pendingPlayRestore.current = wasPlaying;
     }
     closeMenus();
   };
@@ -185,16 +193,36 @@ export default function Video() {
           togglePlay();
         }}>
           <video
+            key={activeVariant.url}
             ref={videoRef}
             src={activeVariant.url}
             className="yt-player__video"
             style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-            onTimeUpdate={() => setCurrentTime(videoRef.current?.currentTime || 0)}
-            onLoadedMetadata={() => {
-              setDuration(videoRef.current?.duration || 0);
+            onTimeUpdate={() => {
               if (videoRef.current) {
+                setCurrentTime(videoRef.current.currentTime);
+              }
+            }}
+            onLoadedMetadata={() => {
+              if (videoRef.current) {
+                setDuration(videoRef.current.duration || 0);
                 videoRef.current.playbackRate = playbackSpeed;
                 videoRef.current.volume = volume / 100;
+                
+                // Restore time if we switched language
+                if (pendingTimeRestore.current !== null) {
+                  videoRef.current.currentTime = pendingTimeRestore.current;
+                  pendingTimeRestore.current = null;
+                }
+                
+                // Resume playback if it was playing before the switch
+                if (pendingPlayRestore.current) {
+                  videoRef.current.play().catch(err => {
+                    console.error("Failed to resume playback:", err);
+                    setIsPlaying(false);
+                  });
+                  pendingPlayRestore.current = false;
+                }
               }
             }}
             onPlay={() => setIsPlaying(true)}
@@ -362,13 +390,7 @@ export default function Video() {
             <span className="yt-info__dot">•</span>
             <span className="yt-info__date">LearnSphere AI Integration</span>
           </div>
-          <div className="yt-info__channel" style={{ marginTop: '1.5rem' }}>
-            <div className="yt-info__avatar">LS</div>
-            <div>
-              <div className="yt-info__channel-name">LearnSphere Engine</div>
-              <div className="yt-info__subs">Generated Educational Content</div>
-            </div>
-          </div>
+
         </div>
 
         {/* Topic Selector Button */}

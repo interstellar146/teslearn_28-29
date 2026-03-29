@@ -3,17 +3,18 @@ import { motion } from 'framer-motion';
 
 const mindMaps = [
   {
+    id: 'projectile-motion',
+    title: 'Projectile Motion',
+    category: 'Physics',
+    url: 'https://mind-maps-tes-learn.vercel.app/projectile-motion'
+  },
+  {
     id: 'neural-networks',
     title: 'Neural Networks',
     category: 'Computer Science',
     url: 'https://mind-maps-tes-learn.vercel.app/neuralnetworks'
   },
-  {
-    id: 'projectile-motion',
-    title: 'Projectile Motion',
-    category: 'Physics',
-    url: 'https://mind-maps-tes-learn.vercel.app/projectile-motion'
-  }
+
 ];
 
 export default function MindMap() {
@@ -37,7 +38,7 @@ export default function MindMap() {
         </div>
 
         <div className="mindmap-selector">
-          <button 
+          <button
             className="mindmap-selector__btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -46,7 +47,7 @@ export default function MindMap() {
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          
+
           {isMenuOpen && (
             <div className="mindmap-selector__menu">
               {mindMaps.map((map) => (
@@ -62,7 +63,7 @@ export default function MindMap() {
                   <span className="mindmap-selector__item-title">{map.title}</span>
                   {activeMap.id === map.id && (
                     <svg className="mindmap-selector__item-check" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                     </svg>
                   )}
                 </button>
