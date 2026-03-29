@@ -2,6 +2,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const menuItems = [
+  { label: 'Upload PDF', icon: '📄', route: '/upload' },
   { label: 'Assistant', icon: '💬', route: '/assistant' },
   { label: 'Videos', icon: '🎬', route: '/video' },
   { label: 'Podcasts', icon: '🎙', route: '/podcast' },
@@ -27,7 +28,7 @@ const itemVariants = {
     x: 0,
     transition: {
       duration: 0.3,
-      ease: [0.4, 0, 0.2, 1],
+      ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
     },
   },
 };

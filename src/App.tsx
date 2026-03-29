@@ -8,6 +8,7 @@ import Podcast from './pages/Podcast';
 import MindMap from './pages/MindMap';
 import Lab from './pages/Lab';
 import Viva from './pages/Viva';
+import UploadPDF from './pages/UploadPDF';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
 
         {/* App Pages with Sidebar */}
         <Route element={<AppLayout />}>
+          <Route path="/upload" element={<UploadPDF />} />
           <Route path="/assistant" element={<Assistant />} />
           <Route path="/video" element={<Video />} />
           <Route path="/podcast" element={<Podcast />} />
