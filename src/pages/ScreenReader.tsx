@@ -137,7 +137,7 @@ export default function ScreenReader() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             id="chat-input"
-            style={{ borderRadius: '9999px' }}
+            style={{ borderRadius: '9999px', backgroundColor: 'var(--card-bg)' }}
           />
           <button
             className="chat-send-btn"
