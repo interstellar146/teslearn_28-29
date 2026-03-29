@@ -12,12 +12,12 @@ interface Product {
 
 const products: Product[] = [
   {
-    icon: '💬',
-    title: 'AI Assistant',
-    description: 'Have intelligent conversations about any topic. Get explanations, summaries, and deep insights powered by AI.',
-    category: 'Conversational',
+    icon: '🔊',
+    title: 'Screen Reader',
+    description: 'Listen to any study material converted instantly to natural-sounding audio.',
+    category: 'Auditory',
     accentColor: '#E8651A',
-    route: '/assistant',
+    route: '/screenreader',
   },
   {
     icon: '🎬',

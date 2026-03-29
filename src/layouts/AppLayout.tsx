@@ -5,7 +5,7 @@ import { useAppStore } from '../store/useAppStore';
 
 const pageTitles: Record<string, string> = {
   '/upload': 'Upload PDF',
-  '/assistant': 'AI Assistant',
+  '/screenreader': 'Screen Reader',
   '/video': 'AI Videos',
   '/podcast': 'AI Podcasts',
   '/mindmap': 'Mind Maps',
@@ -16,7 +16,7 @@ const pageTitles: Record<string, string> = {
 // Pages that use their own full-screen layout (no topbar / workspace wrapper)
 const fullscreenPages: string[] = [];
 
-const fullWidthPages: string[] = ['/mindmap', '/lab'];
+const fullWidthPages: string[] = ['/mindmap', '/lab', '/screenreader'];
 
 export default function AppLayout() {
   const location = useLocation();

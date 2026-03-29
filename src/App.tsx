@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MarketingLayout from './layouts/MarketingLayout';
 import AppLayout from './layouts/AppLayout';
 import Home from './pages/Home';
-import Assistant from './pages/Assistant';
+import ScreenReader from './pages/ScreenReader';
 import Video from './pages/Video';
 import Podcast from './pages/Podcast';
 import MindMap from './pages/MindMap';
@@ -22,7 +22,7 @@ export default function App() {
         {/* App Pages with Sidebar */}
         <Route element={<AppLayout />}>
           <Route path="/upload" element={<UploadPDF />} />
-          <Route path="/assistant" element={<Assistant />} />
+          <Route path="/screenreader" element={<ScreenReader />} />
           <Route path="/video" element={<Video />} />
           <Route path="/podcast" element={<Podcast />} />
           <Route path="/mindmap" element={<MindMap />} />

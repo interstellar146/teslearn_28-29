@@ -72,7 +72,10 @@ export default function UploadPDF() {
     if (previewFile?.id === id) setPreviewFile(null);
   };
 
-  const allDone = files.length > 0 && files.every((f) => f.status === 'done');
+  const hasFiles = files.length > 0;
+  const isUploadPending = files.some((f) => f.status !== 'done');
+  const hasTopic = topic.trim().length > 0;
+  const canContinue = (hasFiles || hasTopic) && !isUploadPending;
 
   const handleContinue = () => {
     navigate('/video');
@@ -142,17 +145,19 @@ export default function UploadPDF() {
             />
           </div>
 
-          {/* File List */}
-          {files.length > 0 && (
+          {/* File List & Continue Button */}
+          {(hasFiles || hasTopic) && (
             <div className="upload-files">
-              <div className="upload-files__header">
-                <span className="upload-files__count">{files.length} file{files.length > 1 ? 's' : ''}</span>
-                {allDone && (
-                  <span className="upload-files__ready">✓ All ready</span>
-                )}
-              </div>
+              {hasFiles && (
+                <>
+                  <div className="upload-files__header">
+                    <span className="upload-files__count">{files.length} file{files.length > 1 ? 's' : ''}</span>
+                    {!isUploadPending && (
+                      <span className="upload-files__ready">✓ All ready</span>
+                    )}
+                  </div>
 
-              <AnimatePresence>
+                  <AnimatePresence>
                 {files.map((f) => (
                   <motion.div
                     key={f.id}
@@ -208,24 +213,26 @@ export default function UploadPDF() {
                   </motion.div>
                 ))}
               </AnimatePresence>
+              </>
+              )}
 
               {/* Continue button */}
               <motion.button
-                className={`upload-continue ${allDone ? 'upload-continue--ready' : ''}`}
+                className={`upload-continue ${canContinue ? 'upload-continue--ready' : ''}`}
                 onClick={handleContinue}
-                disabled={!allDone}
-                whileHover={allDone ? { scale: 1.02 } : {}}
-                whileTap={allDone ? { scale: 0.98 } : {}}
+                disabled={!canContinue}
+                whileHover={canContinue ? { scale: 1.02 } : {}}
+                whileTap={canContinue ? { scale: 0.98 } : {}}
               >
-                {allDone ? (
+                {isUploadPending ? (
+                  'Uploading...'
+                ) : (
                   <>
                     Continue to Videos
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                     </svg>
                   </>
-                ) : (
-                  'Uploading...'
                 )}
               </motion.button>
             </div>
